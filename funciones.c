@@ -72,6 +72,33 @@ void listarTodasLasVentas() {
 }
 
 void listarVentasPorCliente() {
+    char nombreCliente[100];
+    printf("Ingrese el nombre del cliente: ");
+    scanf("%99s", nombreCliente);
+
+    printf("Ventas para el cliente %s:\n", nombreCliente);
+    printf("%-20s %-15s %-5s %-30s %-10s\n", "Nombre Cliente", "Cedula Cliente", "ID Producto", "Nombre Producto", "Total");
+    printf("---------------------------------------------------------------\n");
+
+    int encontrado = 0;
+    for (int i = 0; i < numeroVentas; i++) {
+        if (strcmp(ventas[i].nombreCliente, nombreCliente) == 0) {
+            printf("%-20s %-15s %-5d %-30s $%-10.2f\n",
+                   ventas[i].nombreCliente,
+                   ventas[i].cedulaCliente,
+                   ventas[i].numeroProducto,
+                   ventas[i].nombreProducto,
+                   ventas[i].totalProducto);
+            encontrado = 1;
+        }
+    }
+
+    if (!encontrado) {
+        printf("No se encontraron ventas para el cliente %s.\n", nombreCliente);
+    }
+}
+
+void buscarVentaPorCedula() {
     char cedula[13];
     printf("Ingrese la cedula del cliente: ");
     scanf("%12s", cedula);
@@ -96,12 +123,4 @@ void listarVentasPorCliente() {
     if (!encontrado) {
         printf("No se encontraron ventas para el cliente con cedula %s.\n", cedula);
     }
-}
-
-void visualizarVentas() {
-    // Implementación pendiente
-}
-
-void buscarVentaPorCedula() {
-    // Implementación pendiente
 }
