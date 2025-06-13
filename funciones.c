@@ -29,10 +29,10 @@ void realizarVenta() {
     printf("Ingrese el nombre del cliente: ");
     scanf("%99s", nuevaVenta.nombreCliente);
 
-    printf("Ingrese la cedula del cliente: ");
+    printf("Ingrese la cedula del cliente:\n");
     scanf("%12s", nuevaVenta.cedulaCliente);
 
-    printf("Ingrese el numero de producto: ");
+    printf("Ingrese el numero de producto:\n");
     scanf("%d", &nuevaVenta.numeroProducto);
 
     // Validar si el producto existe
